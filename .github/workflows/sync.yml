@@ -1,0 +1,13 @@
+name: Sync Fork
+on:
+  schedule:
+    - cron: '0 * * * *'  # 这里表示每小时同步一次，可根据需要调整时间
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          repository: 6dylan6/jdpro  # 将这里替换为原始仓库的所有者和名称
+          token: ${{ secrets.GITHUB_TOKEN }}
